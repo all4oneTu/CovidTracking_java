@@ -3,6 +3,8 @@ package com.example.covidapp_build_with_java_ver1;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.content.Context;
@@ -12,6 +14,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -51,6 +55,8 @@ public class HomePage extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
+    BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +69,29 @@ public class HomePage extends AppCompatActivity {
         CriticalCase = findViewById(R.id.TotalCases);
         ActiveCases = findViewById(R.id.ActiveCases);
 
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.setSelectedItemId(R.id.nav_home);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId())
+                {
+                    case R.id.nav_home:
+                        return true;
+                    case R.id.nav_search:
+                        startActivity(new Intent(getApplicationContext(),cityFinder.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.nav_symptom:
+                        startActivity(new Intent(getApplicationContext(),Symptom.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                }
+                return false;
+            }
+        });
 
         mCityFinder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,15 +131,12 @@ public class HomePage extends AppCompatActivity {
     {
         letsdoSomeNetworking(city);
     }
-    private void getCoronaDataForCurrentLocation() {
 
+    private void getCoronaDataForCurrentLocation() {
         mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         mLocationListner = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-//                String Latitude = String.valueOf(location.getLatitude());
-//                String Longitude = String.valueOf(location.getLongitude());
-//                RequestParams params =new RequestParams();
                 letsdoSomeNetworking("VietNam");
             }
 
@@ -126,19 +152,13 @@ public class HomePage extends AppCompatActivity {
 
             @Override
             public void onProviderDisabled(String provider) {
-                //not able to get location
+
             }
         };
 
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},REQUEST_CODE);
             return;
         }
@@ -179,6 +199,7 @@ public class HomePage extends AppCompatActivity {
                 Toast.makeText(HomePage.this,"Data Get Success",Toast.LENGTH_SHORT).show();
 
                 CoronaData coronaData = CoronaData.fromJson(response);
+
                 updateUI(coronaData);
 
 
@@ -203,7 +224,6 @@ public class HomePage extends AppCompatActivity {
         DeathsCase.setText(coronaData.getDeathsCase());
         ActiveCases.setText(coronaData.getmActive());
         //    CoronaIcon.setImageResource(resourceID);
-
 
     }
     @Override

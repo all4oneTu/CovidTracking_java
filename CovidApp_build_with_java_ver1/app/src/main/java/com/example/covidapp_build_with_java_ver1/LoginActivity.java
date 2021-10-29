@@ -74,7 +74,10 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
                         Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
+                        //startActivity(new Intent(LoginActivity.this, HomePage.class));
                         startActivity(new Intent(LoginActivity.this, HomePage.class));
+
+
                     }else {
                         Log.w("TAG", "Error:", task.getException());
                     }
@@ -83,5 +86,8 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
+    }
+    public  String getNameUser(){
+        return  txtMail.getText().toString();
     }
 }

@@ -32,4 +32,14 @@
         android:inputType="textAutoCorrect"
         android:textColor="@color/black"
         android:textSize="20sp" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_nav"
+        app:itemBackground="@color/purple_500"
+        app:menu="@menu/menu_nav"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>

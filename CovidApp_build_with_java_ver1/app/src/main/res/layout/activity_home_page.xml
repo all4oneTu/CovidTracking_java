@@ -11,14 +11,15 @@
         android:id="@+id/CoronaIcon"
         android:layout_width="match_parent"
         android:layout_height="270dp"
-        android:layout_marginTop="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
         android:src="@drawable/finding" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/cityFinder"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="70dp"
         android:orientation="vertical">
 
         <TextView
@@ -66,10 +67,11 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
+
         android:layout_centerInParent="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="147dp"
         android:background="@drawable/buttondesign">
 
         <TextView
@@ -81,14 +83,31 @@
             android:textSize="16sp" />
 
     </RelativeLayout>
+
     <Button
         android:id="@+id/btnSalir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="160dp"
         android:layout_marginTop="70dp"
-        android:text="Salir"
+        android:layout_marginEnd="163dp"
+        android:layout_marginBottom="65dp"
+        android:text="Log Out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cityFinder" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_nav"
+        app:itemBackground="@color/purple_500"
+        app:menu="@menu/menu_nav"
+        app:itemTextColor="@drawable/selector"
+        app:itemIconTint="@drawable/selector"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
