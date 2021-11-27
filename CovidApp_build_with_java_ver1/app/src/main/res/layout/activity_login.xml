@@ -27,8 +27,8 @@
 
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montserratbold"
-        android:text="CovidTrackingApp"
-        android:textColor="@color/lblPrimary"
+        android:text="Covid Tracking App"
+        android:textColor="@color/blue_main"
         android:textSize="28sp"
 
 
@@ -45,14 +45,16 @@
         android:fontFamily="@font/montserratregular"
         android:text="Login To Use"
         android:textSize="20dp"
+        android:textColor="@color/blue_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
     <EditText
         android:id="@+id/txtMail"
-        android:layout_width="330dp"
-        android:layout_height="55dp"
+        android:layout_width="350dp"
+        android:layout_height="52dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_input"
 
@@ -63,7 +65,7 @@
         android:fontFamily="@font/montserratregular"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:paddingStart="10dp"
+        android:paddingStart="15dp"
 
 
         android:textSize="18dp"
@@ -73,13 +75,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtPassword"
-        android:layout_width="330dp"
-
-        android:layout_height="55dp"
+        android:layout_width="350dp"
+        android:layout_height="52dp"
         android:layout_marginTop="25dp"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
-        app:helperTextTextColor="@color/IconFocused"
+        app:helperTextTextColor="@color/blue_dark"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
 
@@ -87,7 +88,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMail"
         app:passwordToggleEnabled="true"
-        app:placeholderTextColor="@color/IconFocused">
+        app:placeholderTextColor="@color/blue_dark">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -99,9 +100,9 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="15dp"
-            android:paddingStart="10dp"
-            android:textColorHighlight="@color/IconFocused"
-            android:textColorLink="@color/IconFocused"
+            android:paddingStart="15dp"
+            android:textColorHighlight="@color/blue_main"
+            android:textColorLink="@color/blue_main"
             android:textSize="18dp"
 
             />
@@ -115,19 +116,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/montserratregular"
-        android:text="¿Olvido Su contraseña?"
+        android:text="Forget Password?"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="@+id/txtPassword"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="330dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="143dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/button_round"
         android:fontFamily="@font/montserratbold"
         android:text="Login"
-        android:backgroundTint="@color/btnPrimary"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
@@ -139,13 +141,14 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:textSize="15dp"
-        android:text="¿No Account?"
+        android:text="No Account?"
         app:layout_constraintEnd_toStartOf="@+id/lblRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
         tools:ignore="MissingConstraints" />
 
     <TextView
+
         android:id="@+id/lblRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -29,14 +29,11 @@
 <!--        </menu>-->
 <!--    </item>-->
     <item android:id="@+id/nav_home"
-        android:title="@string/nav_home"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/home_selector"/>
 
     <item android:id="@+id/nav_search"
-        android:title="@string/nav_find_other_country"
-        android:icon="@drawable/ic_search"/>
+        android:icon="@drawable/search_selector"/>
 
     <item android:id="@+id/nav_symptom"
-        android:title="@string/nav_symptom"
-        android:icon="@drawable/ic_virus"/>
+        android:icon="@drawable/infor_selector"/>
 </menu>

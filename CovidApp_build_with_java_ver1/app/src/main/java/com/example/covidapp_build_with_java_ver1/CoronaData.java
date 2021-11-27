@@ -29,17 +29,17 @@ public class CoronaData {
 
 
     public String getRecoveredCase() {
-        return mRecovered+" Recovered";
+        return mRecovered;
     }
 
     public String getmCriticalCase() {
-        return mCritical + " Cases";
+        return mCritical ;
     }
 
     public String getDeathsCase() {
-        return mTodayDeath +" Deaths";
+        return mTodayDeath ;
     }
 
-    public  String getmActive(){ return mActive +" Active"; }
+    public  String getmActive(){ return mActive ; }
 }
 

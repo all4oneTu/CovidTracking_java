@@ -34,6 +34,7 @@ import cz.msebera.android.httpclient.Header;
 
 
 public class HomePage extends AppCompatActivity {
+    private ImageView learnMoreImage;
 
     //final String Corona_Url = "https://disease.sh/v3/covid-19/all";
     final String Corona_Url = "https://disease.sh/v3/covid-19/countries/";
@@ -43,10 +44,10 @@ public class HomePage extends AppCompatActivity {
 
     String Location_Provider = LocationManager.GPS_PROVIDER;
 
-    TextView CriticalCase, DeathsCase, Recovered, ActiveCases;
+    TextView CriticalCase, DeathsCase, Recovered, ActiveCases, CityName;
     ImageView CoronaIcon;
 
-    RelativeLayout mCityFinder;
+//    RelativeLayout mCityFinder;
 
 
     LocationManager mLocationManager;
@@ -61,17 +62,24 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        learnMoreImage = (ImageView) findViewById(R.id.imageView);
 
+        learnMoreImage.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePage.this, Symptom.class);
+                startActivity(intent);
+            }
+        });
         Recovered = findViewById(R.id.Recovered);
         DeathsCase = findViewById(R.id.DeathsCase);
-        CoronaIcon = findViewById(R.id.CoronaIcon);
-        mCityFinder = findViewById(R.id.cityFinder);
         CriticalCase = findViewById(R.id.TotalCases);
         ActiveCases = findViewById(R.id.ActiveCases);
+        CityName = findViewById(R.id.statistics);
 
-        bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView  = findViewById(R.id.bottom_nav);
         bottomNavigationView.setSelectedItemId(R.id.nav_home);
-
+        bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -93,13 +101,13 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        mCityFinder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, cityFinder.class);
-                startActivity(intent);
-            }
-        });
+//        mCityFinder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(HomePage.this, cityFinder.class);
+//                startActivity(intent);
+//            }
+//        });
         btnSalir = findViewById(R.id.btnSalir);
 
         mAuth = FirebaseAuth.getInstance();
@@ -200,7 +208,7 @@ public class HomePage extends AppCompatActivity {
 
                 CoronaData coronaData = CoronaData.fromJson(response);
 
-                updateUI(coronaData);
+                updateUI(coronaData, city);
 
 
                 // super.onSuccess(statusCode, headers, response);
@@ -216,13 +224,14 @@ public class HomePage extends AppCompatActivity {
 
 
     }
-    private  void updateUI(CoronaData coronaData){
+    private  void updateUI(CoronaData coronaData, String  city){
 
 
         Recovered.setText(coronaData.getRecoveredCase());
         CriticalCase.setText(coronaData.getmCriticalCase());
         DeathsCase.setText(coronaData.getDeathsCase());
         ActiveCases.setText(coronaData.getmActive());
+        CityName.setText(city);
         //    CoronaIcon.setImageResource(resourceID);
 
     }
