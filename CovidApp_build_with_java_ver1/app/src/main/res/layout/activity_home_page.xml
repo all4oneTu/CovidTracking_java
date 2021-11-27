@@ -23,6 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/btnSalir"
         android:layout_width="20dp"
@@ -30,12 +31,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="180dp"
         android:background="@drawable/logout"
         app:layout_constraintBottom_toBottomOf="@+id/statistics"
-        app:layout_constraintStart_toEndOf="@+id/statistics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/statistics" />
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/staticLayout"

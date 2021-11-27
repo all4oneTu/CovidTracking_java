@@ -20,31 +20,31 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class cityFinder extends AppCompatActivity {
 
-    BottomNavigationView bottomNavigationView;
-    TextView Button_VietNam, Button_China, Button_Us, Button_Uk, Button_India,
-    Button_Iran, Button_Egypt, Button_Sk;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_city_finder);
-        final EditText editText = findViewById(R.id.searchCity);
-
-        Button_VietNam = findViewById(R.id.button_vn);
-        Button_China = findViewById(R.id.button_china);
-        Button_Us = findViewById(R.id.button_us);
-        Button_Uk = findViewById(R.id.button_uk);
-        Button_India = findViewById(R.id.button_india);
-        Button_Egypt = findViewById(R.id.button_egypt);
-        Button_Sk = findViewById(R.id.button_south_korea);
-        Button_Iran = findViewById(R.id.button_iran);
-
-
-        bottomNavigationView = findViewById(R.id.bottom_nav);
-        bottomNavigationView.setBackground(null);
-        bottomNavigationView.setSelectedItemId(R.id.nav_search);
-        bottomNavigationView.setItemIconTintList(null);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//    BottomNavigationView bottomNavigationView;
+//    TextView Button_VietNam, Button_China, Button_Us, Button_Uk, Button_India,
+//    Button_Iran, Button_Egypt, Button_Sk;
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_city_finder);
+//        final EditText editText = findViewById(R.id.searchCity);
+//
+//        Button_VietNam = findViewById(R.id.button_vn);
+//        Button_China = findViewById(R.id.button_china);
+//        Button_Us = findViewById(R.id.button_us);
+//        Button_Uk = findViewById(R.id.button_uk);
+//        Button_India = findViewById(R.id.button_india);
+//        Button_Egypt = findViewById(R.id.button_egypt);
+//        Button_Sk = findViewById(R.id.button_south_korea);
+//        Button_Iran = findViewById(R.id.button_iran);
+//
+//
+//        bottomNavigationView = findViewById(R.id.bottom_nav);
+//        bottomNavigationView.setBackground(null);
+//        bottomNavigationView.setSelectedItemId(R.id.nav_search);
+//        bottomNavigationView.setItemIconTintList(null);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId())
