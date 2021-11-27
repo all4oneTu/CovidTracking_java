@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CovidApp_build_with_java_ver1</string>
+    <string name="app_name">Covid Tracker</string>
 
     <string name="nav_home">Home</string>
     <string name="nav_find_other_country">Other Country</string>

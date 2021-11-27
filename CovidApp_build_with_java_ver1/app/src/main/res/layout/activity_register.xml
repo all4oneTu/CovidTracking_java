@@ -8,16 +8,15 @@
     android:padding="16dp">
 
 
-
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="343dp"
+        android:layout_height="133dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_undraw_pet_adoption_2qkw_1"
+        app:srcCompat="@drawable/sign_in"
         tools:ignore="VectorDrawableCompat" />
     <TextView
         android:id="@+id/textView4"
