@@ -123,7 +123,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_width="71dp"
+            android:layout_width="100dp"
             android:layout_height="105dp"
             android:src="@drawable/regularly_wash_hands"
             app:layout_constraintEnd_toEndOf="parent"

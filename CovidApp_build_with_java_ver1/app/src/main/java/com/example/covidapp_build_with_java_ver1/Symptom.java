@@ -19,6 +19,7 @@ public class Symptom extends AppCompatActivity {
         setContentView(R.layout.activity_symptom);
 
         bottomNavigationView = findViewById(R.id.bottom_nav);
+        bottomNavigationView.setBackground(null);
         bottomNavigationView.setSelectedItemId(R.id.nav_symptom);
         bottomNavigationView.setItemIconTintList(null);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
